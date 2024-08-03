@@ -1,4 +1,8 @@
 
+.results-image {
+    width:100vw;
+    height:70vh;
+}
 .rating-bar {
     width: 90%; /* Adjust as needed */
     height: 15px; /* Adjust as needed */

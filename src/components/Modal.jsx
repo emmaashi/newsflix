@@ -11,7 +11,7 @@ function Modal({ isVisible, onClose, numArticles, selectedTopic }) {
       <div className="animated-border-box-glow">
         <div className="animated-border-box">
           <h5>{numArticles} articles selected</h5>
-          <p>Generate kid-friendly article about {selectedTopic}?</p>
+          <p>Generate kid-friendly article about '{selectedTopic}'?</p>
           <div className="button-container">
             <button className="button button-generate">Generate</button>
             <button className="button button-cancel" onClick={onClose}>Cancel</button>

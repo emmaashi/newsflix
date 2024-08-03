@@ -9,6 +9,7 @@ const bannerStyle = {
   backgroundImage: "url(/media/faded-homebackground.png)",
   backgroundPosition: "center",
   backgroundSize: "cover",
+  height: '80vh',
 };
 
 export default function Home() {
