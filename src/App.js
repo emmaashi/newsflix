@@ -1,7 +1,9 @@
+import SelectAccount from "./pages/selectAccount";
+
 function App() {
   return (
     <div className="App">
-      <h1>Newsflix</h1>
+      <SelectAccount/>
     </div>
   );
 }
