@@ -1,5 +1,6 @@
 import React from 'react';
 import "../styles/home.css";
+import { Link } from "react-router-dom";
 
 function Modal({ isVisible, onClose, numArticles, selectedTopic }) {
   if (!isVisible) {
@@ -13,8 +14,8 @@ function Modal({ isVisible, onClose, numArticles, selectedTopic }) {
           <h5>{numArticles} articles selected</h5>
           <p>Generate kid-friendly article about '{selectedTopic}'?</p>
           <div className="button-container">
-            <button className="button button-generate">Generate</button>
-            <button className="button button-cancel" onClick={onClose}>Cancel</button>
+            <Link to="/results"><button className="button button-generate">Generate</button></Link>
+            {/* <button className="button button-cancel" onClick={onClose}>Cancel</button> */}
           </div>
         </div>
       </div>

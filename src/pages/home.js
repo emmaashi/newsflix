@@ -31,6 +31,7 @@ export default function Home() {
     setModalVisible(false);
     setSelectedArticles([]);
     setSelectedTopic(null);
+    
   };
 
   return (
