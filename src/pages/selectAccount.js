@@ -1,39 +1,47 @@
 import React from "react";
 //import "./styles/index.scss"
 //import "./styles/account-login.scss"
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import "../styles/selectAccount.css";
 
-export default function selectAccount() {
-
-  const handleClick = () => {
-    
-  };
+export default function SelectAccount() {
+  const handleClick = () => {};
 
   return (
     <section id="select-account">
       <div>
-        <h1>Who's watching?</h1>
-        <p>testing</p>
-
-        <div className="accounts">
-
-          <div className="account">
-            <button type="button" onClick={handleClick}><img src="/media/square.png"/>Kids</button>
-            <Link to="/home" >Go home</Link>
-          </div>
-          <div className="account">
-            <button type="button" onClick={handleClick}><img src="/media/square.png"/>Teens</button>
-          </div>
-          <div className="account">
-            <button type="button" onClick={handleClick}><img src="/media/square.png"/>Adults</button>
-          </div>
-
+        <div className="logo">
+          <img src="./media/newsflix-logo.png"></img>
         </div>
 
-       
+        <div className="container">
+          <h1 className="heading">Who's watching?</h1>
+          <div className="accounts-container">
+            <div className="accounts-row">
+              <div className="account">
+                <Link to="/home">
+                  <img src="/media/square.png" />
+                  <p>Kids</p>
+                </Link>
+              </div>
+              <div className="account">
+                <Link to="/results">
+                  <img src="/media/square.png" />
+                  <p>Teens</p>
+                </Link>
+              </div>
+              <div className="account">
+                <Link to="/home">
+                  <img src="/media/square.png" />
+                  <p>Adults</p>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* <Link to="/home"> Dashboard </Link> */}
       </div>
     </section>
   );
 }
-

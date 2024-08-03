@@ -3,13 +3,12 @@ import { Link } from "react-router-dom";
 import "./Card.css";
 
 function ArticleCard(props) {
-  props.link;
+  return (
+    <Link to={props.link} className="card">
+      <img src={props.image} alt={props.title} className="card-image" />
+      <h2 className="card-title">{props.title}</h2>
+    </Link>
+  );
 }
-return (
-  <Link to={props.link} className="card">
-    <img src={props.image} alt={props.title} className="card-image" />
-    <h2 className="card-title">{props.title}</h2>
-  </Link>
-);
 
 export default ArticleCard;

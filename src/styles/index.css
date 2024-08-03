@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --light-text-color: #eaeaea;
+  --dark-background-color: #1c1c1c;
+}
+
+body {
+  background-color: var(--dark-background-color);
+  font-family: "Inter", sans-serif;
+  -webkit-text-fill-color: var(--light-text-color);
+}
+
+h1 {
+  font-size: 56px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 24px;
+}
+
+h6 {
+  font-size: 20px;
+}

@@ -1,0 +1,10 @@
+
+.rating-bar {
+    width: 75%; /* Adjust as needed */
+    height: 30px; /* Adjust as needed */
+    background: linear-gradient(
+        to right,
+        red 45%, /* 45% red */
+        blue 45% /* 55% blue */
+    );
+}

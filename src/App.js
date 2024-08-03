@@ -1,21 +1,26 @@
-import SelectAccount from "./pages/selectAccount";
-import Home from "./pages/home";
+import SelectAccount from "./pages/selectAccount"
+import Home from "./pages/home"
+import Results from "./pages/results";
+import './styles/index.css';
+
 import {
   BrowserRouter as Router,
   Routes,
   Route
- } from "react-router-dom";
+ } from "react-router-dom"
 
- const App = () => {
+ export default function App() {
   return (
     <Router>
       <Routes>
-        <Route index path="selectAccount" element={<selectAccount />} />
-        <Route path="home" element={<home />} />
+        <Route index element={<SelectAccount />} />
+        <Route path="/selectAccount" element={<SelectAccount />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/results" element={<Results />} />
       </Routes>
     </Router>
   );
 }
 
-export default App;
+
 

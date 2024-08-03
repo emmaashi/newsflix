@@ -1,0 +1,33 @@
+.container {
+  width: 100vw;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+.accounts-container {
+  width: auto;
+  display: inline-block;
+  background-color: white;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.accounts-row {
+    display: flex;
+    flex-direction: row;
+}
+.account {
+  margin: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.account img {
+  scale: 0.8;
+}
+.account p {
+  margin: 1vw;
+}
+.heading {
+  text-align: center;
+}
