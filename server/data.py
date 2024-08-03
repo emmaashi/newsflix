@@ -11,7 +11,6 @@ soup = BeautifulSoup(page.content, "html.parser")
 title = soup.find("title").gettext()
 print(title)
 
-
 # CTV body description only 
 description = soup.find_all("div", {'class':"c-text"})
 
