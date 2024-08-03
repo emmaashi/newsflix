@@ -1,7 +1,6 @@
 import React from "react";
-//import "./styles/index.scss"
-//import "./styles/account-login.scss"
 import { Link } from "react-router-dom";
+import "../styles/index.css";
 import "../styles/selectAccount.css";
 
 export default function SelectAccount() {
@@ -26,21 +25,19 @@ export default function SelectAccount() {
               </div>
               <div className="account">
                 <Link to="/home">
-                <img src="/media/teen-profile-picture.png" />
-                <h6>Teens</h6>
+                  <img src="/media/teen-profile-picture.png" />
+                  <h6>Teens</h6>
                 </Link>
               </div>
               <div className="account">
                 <Link to="/home">
-                <img src="/media/adult-profile-picture.png" />
-                <h6>Adults</h6>
+                  <img src="/media/adult-profile-picture.png" />
+                  <h6>Adults</h6>
                 </Link>
               </div>
             </div>
           </div>
         </div>
-
-        {/* <Link to="/home"> Dashboard </Link> */}
       </div>
     </section>
   );

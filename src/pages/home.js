@@ -9,6 +9,7 @@ const bannerStyle = {
   backgroundImage: "url(/media/faded-homebackground.png)",
   backgroundPosition: "center",
   backgroundSize: "cover",
+  height: '80vh',
 };
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
     setModalVisible(false);
     setSelectedArticles([]);
     setSelectedTopic(null);
+    
   };
 
   return (
