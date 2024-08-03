@@ -1,4 +1,9 @@
+.select-account-container {
+  padding: 3% 0% 0 3%;
+}
+
 .container {
+  margin-top: 10%;
   width: 100vw;
   margin-left: auto;
   margin-right: auto;
@@ -7,7 +12,6 @@
 .accounts-container {
   width: auto;
   display: inline-block;
-  background-color: white;
   flex-wrap: wrap;
   align-items: center;
 }
@@ -25,9 +29,7 @@
 .account img {
   scale: 0.8;
 }
-.account p {
-  margin: 1vw;
-}
+
 .heading {
   text-align: center;
 }

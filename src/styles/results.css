@@ -1,10 +1,28 @@
 
 .rating-bar {
-    width: 75%; /* Adjust as needed */
-    height: 30px; /* Adjust as needed */
+    width: 90%; /* Adjust as needed */
+    height: 15px; /* Adjust as needed */
     background: linear-gradient(
         to right,
-        red 45%, /* 45% red */
-        blue 45% /* 55% blue */
+        red 20%,
+        blue 80%
     );
+    margin-left: auto;
+    margin-right: auto;
 }
+.bias-container {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.rating-bar-labels {
+    display: flex;
+}
+.label-left {
+    text-align: left;
+}
+.label-right {
+    text-align: right;
+}
+

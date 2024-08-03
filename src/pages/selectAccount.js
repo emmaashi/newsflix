@@ -9,7 +9,7 @@ export default function SelectAccount() {
 
   return (
     <section id="select-account">
-      <div>
+      <div className="select-account-container">
         <div className="logo">
           <img src="./media/newsflix-logo.png"></img>
         </div>
@@ -20,20 +20,20 @@ export default function SelectAccount() {
             <div className="accounts-row">
               <div className="account">
                 <Link to="/home">
-                  <img src="/media/square.png" />
-                  <p>Kids</p>
-                </Link>
-              </div>
-              <div className="account">
-                <Link to="/results">
-                  <img src="/media/square.png" />
-                  <p>Teens</p>
+                  <img src="/media/kid-profile-picture.png" />
+                  <h6>Kids</h6>
                 </Link>
               </div>
               <div className="account">
                 <Link to="/home">
-                  <img src="/media/square.png" />
-                  <p>Adults</p>
+                <img src="/media/teen-profile-picture.png" />
+                <h6>Teens</h6>
+                </Link>
+              </div>
+              <div className="account">
+                <Link to="/home">
+                <img src="/media/adult-profile-picture.png" />
+                <h6>Adults</h6>
                 </Link>
               </div>
             </div>

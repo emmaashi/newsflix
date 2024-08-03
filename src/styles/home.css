@@ -1,4 +1,57 @@
+/* BANNER  */
 .banner-content {
-    width: 60vw;
-    padding: 10% 0 0 10%;
+  width: 60vw;
+  padding: 15% 0 0 10%;
+}
+
+/* ROWS OF ARTICLES */
+.news-topic-container {
+  padding: 5% 10% 0 10%;
+}
+
+/* GLOWING BOX */
+.center-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animated-border-box-glow {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+}
+
+.animated-border-box {
+  padding: 20px;
+  border: 2px solid #fff; 
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+}
+
+/* BUTTON STYLES */
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-generate {
+  background-color: black;
+  color: white;
+}
+
+.button-cancel {
+  background-color: white;
+  color: black;
 }

@@ -1,20 +1,43 @@
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import React from "react";
-import internationalStudents from "../data/articles";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import ArticleCard from "../components/ArticleCard";
+import "../styles/articles-by-topic.css";
 
-function ArticleCarousel({ imageUrl, title, numArticles }) {
-  const articleArray = Array.from({ length: numArticles }, (_, i) => i + 1);
+function ArticleCarousel({ topic, articles, articleOnClick, selectedTopic }) {
+  const responsive = {
+    superLargeDesktop: {
+      breakpoint: { max: 4000, min: 3000 },
+      items: 7,
+    },
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 5,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
+    },
+  };
 
   return (
-    <Carousel autoPlay swipeable infiniteLoop centerMode showThumbs={false}>
-      {internationalStudents.map((i) => (
-        <div key={i}>
-          <h5>{i.title}</h5>
-          <img src={i.imageUrl} alt={`Slide ${i}`} />
-        </div>
-      ))}
-    </Carousel>
+    <div className="article-row">
+      <Carousel responsive={responsive} infinite={true} autoPlay={true}>
+        {articles.map((article) => (
+          <ArticleCard
+            key={article.id}
+            article={article}
+            topic={topic}
+            onClickArticle={articleOnClick}
+            selectedTopic={selectedTopic}
+          />
+        ))}
+      </Carousel>
+    </div>
   );
 }
 

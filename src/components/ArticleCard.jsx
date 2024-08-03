@@ -1,13 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Card.css";
+import React, { useState } from "react";
+import "../styles/articles-by-topic.css";
 
-function ArticleCard(props) {
+function ArticleCard({ article, topic, onClickArticle, selectedTopic }) {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    if (!selectedTopic || selectedTopic === topic) {
+      onClickArticle(topic, article.id, article.sourceUrl);
+      setIsClicked(true);
+    }
+  };
+
   return (
-    <Link to={props.link} className="card">
-      <img src={props.image} alt={props.title} className="card-image" />
-      <h2 className="card-title">{props.title}</h2>
-    </Link>
+    <div
+      className="article-card"
+      onClick={handleClick}
+      style={{
+        opacity: isClicked ? 0.3 : 1,
+      }}
+    >
+      <div className="article-cover-image">
+        <img src={article.imageUrl} alt={article.title} />
+      </div>
+      <h6 className="article-title-preview">{article.title}</h6>
+    </div>
   );
 }
 
