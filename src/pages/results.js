@@ -22,10 +22,9 @@ export default function ResultsPage() {
         </Link>
         <h2>{data.article_title}</h2>
         <br />
-        <h4>Bias</h4>
-        <BiasBar bias={data.bias}/>
-        <br />
-        <h3>Selected news sources</h3>
+        <br></br>
+        <h5>Bias based on selected news sources</h5>
+        <br></br>
         <div className="news-sources">
           {data.news_source.map((source, index) => (
             <span key={index} className="news-source">
@@ -33,6 +32,7 @@ export default function ResultsPage() {
             </span>
           ))}
         </div>
+        <BiasBar bias={data.bias}/>
         <div className="revised-article-text">
           <h4>Here's an <strong>unbiased</strong> and <strong>kid-friendly</strong> analysis.</h4>
           <br></br>

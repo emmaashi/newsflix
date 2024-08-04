@@ -121,7 +121,7 @@ const articlesByTopic = [
   },
   {
     id: 3,
-    topic: "The ongoing Isisraeli-Palestinian conflict",
+    topic: "The ongoing Israel-Palestine conflict",
     articles: [
       {
         id: 1,

@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/results.css";
 
 const BiasBar = ({ bias }) => {
-  const circlePosition = `calc(${bias}% - 10px)`;
+  const circlePosition = `calc(${bias}%)`;
 
   return (
     <div className="bias-bar-container">
