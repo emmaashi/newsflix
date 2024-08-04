@@ -74,9 +74,7 @@ export default function Home() {
           <h1>What's trending?</h1>
           <h5>Empowering today's youth with unbiased political insights.</h5>
           <p>
-            This is a sentence describing our mission statement. We are trying
-            to replicate the Netflix home page. This is filler text until we
-            have a formal statement.
+          Newsflix is an interactive, curated web application designed to broaden users' political perspectives. Our unique personalized suggestion approach ensures accessibility for our intended audience, promoting nuanced learning across all ages. 
           </p>
         </div>
       </div>
