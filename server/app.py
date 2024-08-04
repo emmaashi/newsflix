@@ -9,12 +9,12 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 OPENAI_API_URL = "https://api.openai.com/v1/chat/completions"
-OPENAI_API_SYSTEM = """You will take in the links to multiple articles and provide the following output in json format: 
+OPENAI_API_SYSTEM = """You will take in the links to multiple articles and provide the following output in json format. REMEMBER THE LAST "rewritten_version" MUST BE AT LEAST 4000 CHARACTERS: 
 {
 \"news_source\": [*comma and space separated array containing, in alphabetic order, all distinct news sources (i.e. company names of the websites) that appear in the set of article links*],
 \"bias\": *a number to two decimals between 0 and 100 that represents the percentage of articles provided in the list of links that are liberal biased (implying that 100 subtract this number = percentage of articles that are conservative biased)*,
 \"article_title\": \"*a string that represents an article title that is an unbiased summarization of the article titles of all the articles provided in the article links*\",
-\"rewritten_version\": \"*a string that represents an unbiased, child-language-friendly rewritten article combined from all the articles provided in the article links, that is between 3500 and 4000 characters in length*\"
+\"rewritten_version\": \"*a LONG string that represents an unbiased, child-language-friendly rewritten article combined from all the articles provided in the article links, THAT IS AT LEAST 4000 CHARACTERS IN LENGTH*\"
 }
 """
 
