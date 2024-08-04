@@ -2,11 +2,8 @@ from flask import Flask, request, jsonify, Response
 from scraper import read_article
 from flask_cors import CORS
 import requests
-from dotenv import load_dotenv
 import os
 import json
-
-load_dotenv()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS
@@ -17,7 +14,7 @@ OPENAI_API_SYSTEM = """You will take in the links to multiple articles and provi
 \"news_source\": [*comma and space separated array containing, in alphabetic order, all distinct news sources (i.e. company names of the websites) that appear in the set of article links*],
 \"bias\": *a number to two decimals between 0 and 100 that represents the percentage of articles provided in the list of links that are liberal biased (implying that 100 subtract this number = percentage of articles that are conservative biased)*,
 \"article_title\": \"*a string that represents an article title that is an unbiased summarization of the article titles of all the articles provided in the article links*\",
-\"rewritten_version\": \"*a string that represents an unbiased, child-language-friendly summarization of all the articles provided in the article links*\"
+\"rewritten_version\": \"*a string that represents an unbiased, child-language-friendly summarization of all the articles provided in the article links, that is at most 4000 characters in length*\"
 }
 """
 
@@ -47,6 +44,7 @@ def get_chatgpt_response(prompt):
     if response.status_code == 200:
         
         response_data = response.json()
+        
         # Extract the text from the response
         response_text = response_data.get('choices', [{}])[0].get('message', {}).get('content', '')
     
@@ -54,35 +52,22 @@ def get_chatgpt_response(prompt):
         try:
             parsed_data = json.loads(response_text)
         except json.JSONDecodeError:
+            
             # Handle JSON parse error
             return Response(response=json.dumps({"error": "Failed to parse JSON response"}), mimetype="application/json")
 
         return jsonify(parsed_data)
     else:
+        
         # Handle error response
         error = response.json().get('error', 'Unknown error occurred')
         return Response(response=json.dumps({"error": error}), mimetype="application/json")
 
-# @app.route('/chat', methods=['POST'])
-# def chat():
-#     prompt = request.json.get('prompt')
-#     if not prompt:
-#         return Response(response=json.dumps({"error": "No prompt provided"}), mimetype="application/json")
-    
-#     return get_chatgpt_response(prompt)
-
 @app.route("/summarize", methods=['POST'])
 def summarize_article_links():
-    
-    # return jsonify({"ret":"yes"})
-    # return Response(response=json.dumps({"return":"yes"}), mimetype="application/json")
-    # print("check 0")
+
     article_links = request.json.get('article_links')
-    # if not data:
-    #     return Response(response=json.dumps({"error": "No data provided"}), mimetype="application/json")
-    # print("check 1")
-    # # Extract the article links from the request
-    # article_links = data.get('article_links', [])
+
     if not article_links:
         return Response(response=json.dumps({"error": "No article links provided"}), mimetype="application/json")
 
@@ -91,9 +76,6 @@ def summarize_article_links():
         articles+=read_article(article_link)+"\n"
         
     return get_chatgpt_response(articles)
-    # # Prepare the prompt
-    # prompt = "\n".join(article_links)
-    # return get_chatgpt_response(prompt)
 
 if __name__ == '__main__':
     app.run(debug=True)
