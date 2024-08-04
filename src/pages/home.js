@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/home.css";
 import ArticleCarousel from "../components/ArticleCarousel";
 import articlesByTopic from "../data/articles";
@@ -16,27 +17,48 @@ export default function Home() {
   const [isModalVisible, setModalVisible] = useState(false);
   const [selectedArticles, setSelectedArticles] = useState([]);
   const [selectedTopic, setSelectedTopic] = useState(null);
+  const navigate = useNavigate();
 
   const handleArticleClick = (topic, articleId, sourceUrl) => {
     if (!selectedTopic) {
       setSelectedTopic(topic);
-      setSelectedArticles([{ id: articleId, url: sourceUrl }]);
+      setSelectedArticles([{ url: sourceUrl }]);
     } else if (
       selectedTopic === topic &&
-      !selectedArticles.some((article) => article.id === articleId)
+      !selectedArticles.some((article) => article.url === sourceUrl)
     ) {
       setSelectedArticles((prevArticles) => [
         ...prevArticles,
-        { id: articleId, url: sourceUrl },
+        { url: sourceUrl },
       ]);
     }
     setModalVisible(true);
   };
 
+  const handleGenerate = async () => {
+    console.log("hi");
+    const articleUrls = selectedArticles.map((article) => article.url);
+    try {
+      const response = await fetch("http://localhost:5000/summarize", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ article_links: articleUrls }),
+      });
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      console.log("Data received from API:", data);
+      navigate("/results", { state: { data } });
+    } catch (error) {
+      console.error("There was a problem with the fetch operation:", error);
+    }
+  };
+
   const handleCloseModal = () => {
     setModalVisible(false);
-    setSelectedArticles([]);
-    setSelectedTopic(null);
   };
 
   return (
@@ -58,12 +80,13 @@ export default function Home() {
           </p>
         </div>
       </div>
-      <br></br>
+      <br />
       <Modal
         isVisible={isModalVisible}
-        onClose={handleCloseModal}
         selectedTopic={selectedTopic}
         numArticles={selectedArticles.length}
+        selectedArticles={selectedArticles}
+        onGenerate={handleGenerate}
       />
       <div className="news-topic-container">
         {articlesByTopic.map((topic) => (
