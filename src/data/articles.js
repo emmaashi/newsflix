@@ -24,15 +24,6 @@ const articlesByTopic = [
       {
         id: 3,
         sourceUrl:
-          "https://www.foxbusiness.com/politics/kamala-harris-vp-clear-favorite-emerges-betting-markets",
-        imageUrl:
-          "https://a57.foxnews.com/cf-images.us-east-1.prod.boltdns.net/v1/static/854081161001/bc3427cc-279e-48e7-b3e2-29780be126c4/dd9bf6cb-f35e-4b0a-a5aa-e46ce225a9dc/1280x720/match/896/504/image.jpg?ve=1&tl=1",
-        source: "FOX",
-        title: "Betting Markets Favor Harris's VP",
-      },
-      {
-        id: 4,
-        sourceUrl:
           "https://www.cnn.com/2024/08/03/politics/harris-vp-vetting-team-finalists/index.html",
         imageUrl:
           "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2164089457.jpg?c=16x9&q=h_653,w_1160,c_fill/f_webp",
@@ -40,7 +31,7 @@ const articlesByTopic = [
         title: "Harris's VP Vetting Team Finalists",
       },
       {
-        id: 5,
+        id: 4,
         sourceUrl:
           "https://www.ctvnews.ca/world/what-polling-shows-about-the-top-vp-contenders-for-kamala-harris-1.6985551",
         imageUrl:
@@ -49,7 +40,7 @@ const articlesByTopic = [
         title: "Polling Insights On VP Contenders",
       },
       {
-        id: 6,
+        id: 5,
         sourceUrl:
           "https://www.cnn.com/2024/08/03/politics/kamala-harris-vice-president-decision/index.html",
         imageUrl:
@@ -58,7 +49,7 @@ const articlesByTopic = [
         title: "Final Days Of VP Decision",
       },
       {
-        id: 7,
+        id: 6,
         sourceUrl:
           "https://www.cbsnews.com/news/kamala-harris-top-contenders-vice-president-decision/",
         imageUrl:

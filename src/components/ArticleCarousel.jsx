@@ -32,6 +32,7 @@ function ArticleCarousel({ topic, articles, articleOnClick, selectedTopic }) {
             key={article.id}
             article={article}
             topic={topic}
+            title={article.title}
             onClickArticle={articleOnClick}
             selectedTopic={selectedTopic}
           />

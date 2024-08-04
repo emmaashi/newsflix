@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import BiasBar from "../components/BiasBar";
+import "../styles/results.css";
+import { Link } from "react-router-dom";
 
 export default function ResultsPage() {
   const location = useLocation();
@@ -10,13 +13,32 @@ export default function ResultsPage() {
   }
 
   return (
-    <div>
-      <h1>Generated Article Summary</h1>
-      <h2>Title: {data.article_title}</h2>
-      <h3>Bias: {data.bias}%</h3>
-      <h3>News Source: {data.news_source.join(", ")}</h3>
-      <h3>Rewritten Version:</h3>
-      <p>{data.rewritten_version}</p>
-    </div>
+    <section>
+      <img className="top-gradient" src="/media/top-gradient.png"></img>
+
+      <div className="result-content">
+        <Link to="/home">
+          <button className="back-button">Back to Home</button>
+        </Link>
+        <h2>{data.article_title}</h2>
+        <br />
+        <h4>Bias</h4>
+        <BiasBar bias={data.bias}/>
+        <br />
+        <h3>Selected news sources</h3>
+        <div className="news-sources">
+          {data.news_source.map((source, index) => (
+            <span key={index} className="news-source">
+              {source}
+            </span>
+          ))}
+        </div>
+        <div className="revised-article-text">
+          <h4>Here's an <strong>unbiased</strong> and <strong>kid-friendly</strong> analysis.</h4>
+          <br></br>
+          <p>{data.rewritten_version}</p>
+        </div>
+      </div>
+    </section>
   );
 }
