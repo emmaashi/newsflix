@@ -9,7 +9,7 @@ const bannerStyle = {
   backgroundImage: "url(/media/faded-homebackground.png)",
   backgroundPosition: "center",
   backgroundSize: "cover",
-  height: '80vh',
+  height: "85vh",
 };
 
 export default function Home() {
@@ -21,8 +21,14 @@ export default function Home() {
     if (!selectedTopic) {
       setSelectedTopic(topic);
       setSelectedArticles([{ id: articleId, url: sourceUrl }]);
-    } else if (selectedTopic === topic && !selectedArticles.some(article => article.id === articleId)) {
-      setSelectedArticles(prevArticles => [...prevArticles, { id: articleId, url: sourceUrl }]);
+    } else if (
+      selectedTopic === topic &&
+      !selectedArticles.some((article) => article.id === articleId)
+    ) {
+      setSelectedArticles((prevArticles) => [
+        ...prevArticles,
+        { id: articleId, url: sourceUrl },
+      ]);
     }
     setModalVisible(true);
   };
@@ -31,17 +37,20 @@ export default function Home() {
     setModalVisible(false);
     setSelectedArticles([]);
     setSelectedTopic(null);
-    
   };
 
   return (
     <section id="home">
       <div className="home-banner" style={bannerStyle}>
         <div className="banner-content">
-          <img className="logo" src="./media/newsflix-logo.png" alt="Newsflix Logo" />
+          <img
+            className="logo"
+            src="./media/newsflix-logo.png"
+            alt="Newsflix Logo"
+          />
           <br />
-          <h1>What's trending</h1>
-          <h4>This is a shorter one-liner about our mission statement.</h4>
+          <h1>What's trending?</h1>
+          <h5>Empowering today's youth with unbiased political insights.</h5>
           <p>
             This is a sentence describing our mission statement. We are trying
             to replicate the Netflix home page. This is filler text until we
@@ -49,10 +58,17 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <br></br>
+      <Modal
+        isVisible={isModalVisible}
+        onClose={handleCloseModal}
+        selectedTopic={selectedTopic}
+        numArticles={selectedArticles.length}
+      />
       <div className="news-topic-container">
         {articlesByTopic.map((topic) => (
           <div key={topic.id}>
-            <h3>{topic.topic}</h3>
+            <h4>{topic.topic}</h4>
             <ArticleCarousel
               topic={topic.topic}
               articles={topic.articles}
@@ -62,12 +78,6 @@ export default function Home() {
           </div>
         ))}
       </div>
-      <Modal
-        isVisible={isModalVisible}
-        onClose={handleCloseModal}
-        selectedTopic={selectedTopic}
-        numArticles={selectedArticles.length}
-      />
     </section>
   );
 }

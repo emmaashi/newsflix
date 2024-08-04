@@ -20,9 +20,10 @@ function ArticleCard({ article, topic, onClickArticle, selectedTopic }) {
       }}
     >
       <div className="article-cover-image">
-        <img src={article.imageUrl} alt={article.title} />
+        <img src={article.imageUrl} alt={article.source} />
       </div>
-      <h6 className="article-title-preview">{article.title}</h6>
+      <h6>Title from webscraper</h6>
+      <p className="article-title-preview">{article.source}</p>
     </div>
   );
 }

@@ -1,3 +1,11 @@
+.article-summary {
+    padding: 5% 10% 0 10%;
+}
+
+.header {
+    padding: 2% 2% 0 10%;
+}
+
 .results-image-container {
     position: relative;
     width: 100vw;
@@ -24,9 +32,9 @@
 
 .text-overlay {
     position: absolute;
-    top: 70%; 
+    top: 60%; 
     width: 100%;
-    margin-left: 40px;
+    padding: 5% 20% 0 10%;
     color: white;
 }
 
@@ -61,3 +69,25 @@
 .label-right {
     text-align: right;
 }
+
+/* GLOWING BOX */
+.center-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .animated-border-box-glow {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .animated-border-box {
+    padding: 20px;
+    border: 2px solid #fff; 
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7); 
+  }
