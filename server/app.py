@@ -14,7 +14,7 @@ OPENAI_API_SYSTEM = """You will take in the links to multiple articles and provi
 \"news_source\": [*comma and space separated array containing, in alphabetic order, all distinct news sources (i.e. company names of the websites) that appear in the set of article links*],
 \"bias\": *a number to two decimals between 0 and 100 that represents the percentage of articles provided in the list of links that are liberal biased (implying that 100 subtract this number = percentage of articles that are conservative biased)*,
 \"article_title\": \"*a string that represents an article title that is an unbiased summarization of the article titles of all the articles provided in the article links*\",
-\"rewritten_version\": \"*a string that represents an unbiased, child-language-friendly summarization of all the articles provided in the article links, that is at most 4000 characters in length*\"
+\"rewritten_version\": \"*a string that represents an unbiased, child-language-friendly summarization of all the articles provided in the article links, that is between 3500 and 4000 characters in length*\"
 }
 """
 
